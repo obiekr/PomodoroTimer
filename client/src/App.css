@@ -1,0 +1,82 @@
+.clock {
+  font-size: 70px;
+  margin-bottom: 50px;
+  letter-spacing: 10px;
+  font-weight: 400;
+}
+.app-circle {
+  color: white;
+  margin-top: 20px;
+  border-color: #ffffff;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.pause,
+.play {
+  font-size: 55px;
+}
+.pause {
+  margin-bottom: 12px;
+}
+
+.timeline {
+  color: black;
+  margin: 50px auto auto auto;
+  padding: 10px;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 10px;
+  width: 120px;
+}
+.app-width {
+  max-width: 50vw;
+}
+.now {
+  padding: 16px;
+  margin-top: 44px;
+}
+
+.break {
+  background-color: #ffffcd;
+}
+
+@media screen and (min-width: 576px) {
+  .clock {
+    font-size: 110px;
+  }
+  .app-circle {
+    width: 180px;
+    height: 180px;
+  }
+  .pause,
+  .play {
+    font-size: 65px;
+  }
+
+  .timeline {
+    color: black;
+    margin: 50px auto auto auto;
+    padding: 10px;
+    font-size: 22px;
+    width: 180px;
+  }
+  .app-width {
+    max-width: 50vw;
+  }
+  .now {
+    padding: 24px;
+    margin-top: 36px;
+  }
+}
+
+/* 
+X-Small	None	<576px
+Small	sm	≥576px
+Medium	md	≥768px
+Large	lg	≥992px
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px 
+*/
