@@ -43,6 +43,10 @@
   background-color: #ffffcd;
 }
 
+.np-form-group {
+  max-width: 400px;
+}
+
 @media screen and (min-width: 576px) {
   .clock {
     font-size: 110px;
