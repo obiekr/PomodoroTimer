@@ -1,0 +1,51 @@
+/* Color Pallete
+https://colorhunt.co/palette/96ceb4ffeeadd9534fffad60
+https://colorhunt.co/palette/f3c892fff1bda3da8d146356
+*/
+
+.visualizer-box-pomo {
+  background-color: #96ceb4;
+}
+.visualizer-box-short {
+  background-color: #ffeead;
+}
+.visualizer-box-long {
+  background-color: #a3da8d;
+}
+.visualizer-box-interval {
+  background-color: #ffad60;
+}
+.visualizer-box-rep {
+  background-color: #d9534f;
+  max-width: 350px;
+}
+
+.visualizer-box {
+  font-size: 0.8em;
+  color: black;
+}
+
+.pomo {
+  color: #96ceb4;
+}
+
+.short {
+  color: #ffeead;
+}
+
+.long {
+  color: #a3da8d;
+}
+.interval {
+  color: #ffad60;
+}
+.rep {
+  color: #d9534f;
+}
+
+@media screen and (min-width: 392px) {
+  .visualizer-box {
+    font-size: 1em;
+    color: black;
+  }
+}

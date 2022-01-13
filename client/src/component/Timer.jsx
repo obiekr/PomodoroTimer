@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef} from 'react';
 
 export default function Timer(props){
     const {initialMinute = 0,initialSeconds = 0, counting} = props;
@@ -7,7 +7,6 @@ export default function Timer(props){
     const [seconds, setSeconds] =  useState(initialSeconds);
     
     useEffect(()=>{
-        console.log(seconds)
         if(counting){
             let myInterval = setInterval(() => {
                     if (seconds > 0) {
