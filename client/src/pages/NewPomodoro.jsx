@@ -12,15 +12,15 @@ export default function NewPomodoro(){
 
     function submitHandler(e){
         e.preventDefault()
-        // window.location.href = "/timer"
         let local = [pomo, short, long, interval, rep]
-        console.log(local[0])
+        
         return (<Link to={{
             pathname: "/timer",
             state: local
         }}/>)
     }
-    
+    localStorage.removeItem("minutes")
+    localStorage.removeItem("seconds")
     return(
         <div className="container-fluid">
             
