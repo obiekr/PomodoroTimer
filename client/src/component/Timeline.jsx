@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import "./Visualizer.css"
-export default function Timeline({type}){
-
-    var className = type
-
+export default function Timeline({data, counter}){
+    // {pomo: 1, short: '2', long: '3', interval: '2', rep: '3'}
+    var clas = ""
+    for(let i=0; i < data.rep; i++){
+        for(let j=0; j < data.interval; j++){
+            clas += "pomo "
+            clas += "short "
+        }
+        clas += "long "
+    }
+    console.log(clas)
+    
 
     return(
         <div className="d-flex justify-content-center">
-                <div className="my-auto my-border p-2 m-2 side">
-                    <h6 className='text-center my-auto side'>1 minute</h6>
-                </div>
+                
                 <div className="my-auto pomo my-border p-2 m-2">
                     <h6 className='text-center my-auto'>1 minute</h6>
                 </div>
@@ -19,9 +25,7 @@ export default function Timeline({type}){
                 <div className="my-auto long my-border p-2 m-2">
                     <h6 className='text-center my-auto '>1 minute</h6>
                 </div>
-                <div className="my-auto long my-border p-2 m-2">
-                    <h6 className='text-center my-auto '>1 minute</h6>
-                </div>
+                
         </div>
     )
 }

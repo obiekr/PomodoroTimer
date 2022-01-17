@@ -7,8 +7,8 @@ export default function NewPomodoro(){
     const [pomo, setPomo] = useState(1)
     const [short, setShort] = useState(1)
     const [long, setLong] = useState(1)
-    const [interval, setInterval] = useState(1)
-    const [rep, setRep] = useState(1)
+    const [interval, setInterval] = useState(2)
+    const [rep, setRep] = useState(2)
 
     function submitHandler(e){
         e.preventDefault()
