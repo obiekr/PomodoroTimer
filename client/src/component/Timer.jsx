@@ -1,14 +1,17 @@
 import React from 'react'
-import { useState, useEffect, useRef} from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // interval = 3
-function switches(counter, interval, data, setType){
+function switches(counter, data, setType){
     if (counter % 2 === 0){
         console.log("pomo")
         setType("pomo")
         return data.pomo
-    }else if(counter % 2 === 1 && (counter + 1) % (interval*2) === 0){
+    }else if(counter % 2 === 1 && (counter + 1) % (data.interval*2) === 0){
+        if(counter+1 === data.interval*2*data.rep){
+            console.log("End")
+            return 0
+        }        
         console.log("long break")
         setType("long")
         return data.long
@@ -28,6 +31,12 @@ export default function Timer(props){
         counter, setCounter } = props;
     
     useEffect(()=>{
+        // PLEASE REVIEW THIS FUNCTION AGAIN
+        // if(minutes === 0 && seconds === 0){
+        //     localStorage.setItem("minutes", 0)
+        //     localStorage.setItem("seconds", 0)
+        //     return
+        // }
         if(counting){
             localStorage.setItem("minutes", minutes)
             localStorage.setItem("seconds", seconds)
@@ -39,9 +48,6 @@ export default function Timer(props){
                         if (minutes === 0) {
                             let tempCnt = counter + 1
                             setCounter(tempCnt)
-                            console.log(counter)
-                            let min = switches(counter, data.interval, data, setType)
-                            setMinutes(min)
                             clearInterval(myInterval)
                         } else {
                             setMinutes(minutes - 1);
@@ -54,6 +60,12 @@ export default function Timer(props){
                 };
         }
     });
+
+    useEffect(()=>{
+        console.log(counter)
+        let min = switches(counter, data, setType)
+        setMinutes(min)
+    }, [counter])
 
     return (    
         <h1 className='text-center clock'>{minutes < 10 ?  `0${minutes}` : minutes} : {seconds < 10 ?  `0${seconds}` : seconds}</h1> 

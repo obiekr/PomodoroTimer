@@ -43,6 +43,22 @@ https://colorhunt.co/palette/f3c892fff1bda3da8d146356
   color: #d9534f;
 }
 
+.my-border {
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  /* border-width: 2px; */
+}
+
+.nows {
+  color: black;
+}
+
+.side .my-border {
+  background-image: linear-gradient(to bottom, transparent, black);
+}
+
 @media screen and (min-width: 392px) {
   .visualizer-box {
     font-size: 1em;

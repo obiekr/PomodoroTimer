@@ -4,6 +4,7 @@ import "./Pomodoro.css"
 import Pause from '../component/Pause';
 import Timer from '../component/Timer';
 import Visualizer from '../component/Visualizer';
+import Timeline from '../component/Timeline';
 
 
 export default function Pomodoro() {
@@ -16,7 +17,7 @@ export default function Pomodoro() {
     if (!localStorage.getItem("minutes")){
         console.log("reset")
 
-        localStorage.setItem("minutes", 1)
+        localStorage.setItem("minutes", data.pomo)
         localStorage.setItem("seconds", 0)
     }
 
@@ -51,7 +52,7 @@ export default function Pomodoro() {
                 <Pause counting={counting} setCounting={setCounting}/>
               </div>
               <div className="timebox mt-5 d-flex justify-content-center">
-                <Visualizer />
+                <Timeline />
               </div>
             </div>
           </div>
