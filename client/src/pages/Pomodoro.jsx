@@ -21,10 +21,8 @@ export default function Pomodoro() {
         // localStorage.setItem("minutes", 0)
         // localStorage.setItem("seconds", data.pomo)
     }
-
-
-    const [minutes, setMinutes] = useState(localStorage.getItem("minutes")?parseInt(localStorage.getItem("minutes")):data.pomo);
-    const [seconds, setSeconds] = useState(localStorage.getItem("seconds")?parseInt(localStorage.getItem("seconds")):0)
+    const [minutes, setMinutes] = useState(parseInt(localStorage.getItem("minutes")))
+    const [seconds, setSeconds] = useState(parseInt(localStorage.getItem("seconds")))
 
     return (
         <div className='container-fluid p-0 m-0'>

@@ -1,7 +1,6 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-// interval = 3
 function switches(counter, data, setType){
     if (counter % 2 === 0){
         console.log("pomo")
@@ -28,6 +27,19 @@ export default function Timer(props){
         minutes, setMinutes, 
         seconds, setSeconds, 
         counter, setCounter } = props;
+
+    // https://thewebdev.info/2021/03/13/how-to-make-the-react-useeffect-hook-not-run-on-initial-render/
+    const useDidMountEffect = (func, deps) => {
+        const didMount = useRef(false);
+        
+        useEffect(() => {
+            if (didMount.current) {
+            func();
+            } else {
+            didMount.current = true;
+            }
+        }, deps);
+    };
     
     useEffect(()=>{
         if(counter+1 === data.interval*2*data.rep && counter % 2 === 1){
@@ -60,12 +72,12 @@ export default function Timer(props){
         }
     });
 
-    useEffect(()=>{
-        console.log(counter)
+    useDidMountEffect(() => {
         let min = switches(counter, data, setType)
+        console.log(counter, min)
         setMinutes(min)
-        // setSeconds(min)
-    }, [counter])
+      }, [counter]);
+
 
     return (    
         <h1 className='text-center clock'>{minutes < 10 ?  `0${minutes}` : minutes} : {seconds < 10 ?  `0${seconds}` : seconds}</h1> 
