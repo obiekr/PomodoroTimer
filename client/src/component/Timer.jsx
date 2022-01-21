@@ -1,5 +1,6 @@
 import React from 'react'
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import tone from "./alarm.mp3"
 
 function switches(counter, data, setType){
     if (counter % 2 === 0){
@@ -27,6 +28,9 @@ export default function Timer(props){
         minutes, setMinutes, 
         seconds, setSeconds, 
         counter, setCounter } = props;
+    
+    const [audio] = useState(new Audio(tone));
+    // const [duration, setDuration] = useState(0);
 
     // https://thewebdev.info/2021/03/13/how-to-make-the-react-useeffect-hook-not-run-on-initial-render/
     const useDidMountEffect = (func, deps) => {
@@ -60,6 +64,7 @@ export default function Timer(props){
                             let tempCnt = counter + 1
                             setCounter(tempCnt)
                             clearInterval(myInterval)
+                            audio.play()
                         } else {
                             setMinutes(minutes - 1);
                             setSeconds(59);
@@ -79,7 +84,10 @@ export default function Timer(props){
       }, [counter]);
 
 
-    return (    
-        <h1 className='text-center clock'>{minutes < 10 ?  `0${minutes}` : minutes} : {seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+    return (   
+        <div className="">
+            <h1 className='text-center clock'>{minutes < 10 ?  `0${minutes}` : minutes} : {seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+        </div>
+        
     )
 }
