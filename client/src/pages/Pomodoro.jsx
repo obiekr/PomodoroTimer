@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import "./Pomodoro.css"
 import Pause from '../component/Pause';
@@ -7,15 +7,17 @@ import Timeline from '../component/Timeline';
 
 
 export default function Pomodoro() {
+
     const [counting, setCounting] = useState(true)
-    const [counter, setCounter]  = useState(0)
-    const [type, setType]  = useState("pomo")
+    const [counter, setCounter] = useState(localStorage.getItem("minutes")?parseInt(localStorage.getItem("counter")):0)
+    const [type, setType] = useState("pomo")
     const location = useLocation()
     const data = location.state
     
     if (!localStorage.getItem("minutes")){
         console.log("reset")
 
+        localStorage.setItem("counter", 0)
         localStorage.setItem("minutes", data.pomo)
         localStorage.setItem("seconds", 0)
         // localStorage.setItem("minutes", 0)
@@ -23,7 +25,7 @@ export default function Pomodoro() {
     }
     const [minutes, setMinutes] = useState(parseInt(localStorage.getItem("minutes")))
     const [seconds, setSeconds] = useState(parseInt(localStorage.getItem("seconds")))
-
+    
     return (
         <div className='container-fluid p-0 m-0'>
           <div className="d-flex justify-content-center vh-100">
@@ -33,7 +35,8 @@ export default function Pomodoro() {
               </div>
 
               <Timer 
-                counting={counting} data={data} setType={setType}
+                counting={counting} 
+                data={data} setType={setType}
                 minutes={minutes} setMinutes={setMinutes} 
                 seconds={seconds} setSeconds={setSeconds}
                 counter={counter} setCounter={setCounter} 

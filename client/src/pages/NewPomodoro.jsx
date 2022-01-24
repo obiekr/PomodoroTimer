@@ -21,6 +21,7 @@ export default function NewPomodoro(){
     }
     localStorage.removeItem("minutes")
     localStorage.removeItem("seconds")
+    localStorage.removeItem("counter")
     return(
         <div className="container-fluid">
             

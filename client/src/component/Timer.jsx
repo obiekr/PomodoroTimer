@@ -30,7 +30,6 @@ export default function Timer(props){
         counter, setCounter } = props;
     
     const [audio] = useState(new Audio(tone));
-    // const [duration, setDuration] = useState(0);
 
     // https://thewebdev.info/2021/03/13/how-to-make-the-react-useeffect-hook-not-run-on-initial-render/
     const useDidMountEffect = (func, deps) => {
@@ -78,6 +77,7 @@ export default function Timer(props){
     });
 
     useDidMountEffect(() => {
+        localStorage.setItem("counter", counter)
         let min = switches(counter, data, setType)
         console.log(counter, min)
         setMinutes(min)
