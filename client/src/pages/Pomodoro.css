@@ -47,6 +47,14 @@
   max-width: 400px;
 }
 
+.break-font {
+  margin-top: 15vh;
+  position: absolute;
+}
+.break-font.trans {
+  opacity: 0%;
+}
+
 @media screen and (min-width: 576px) {
   .clock {
     font-size: 110px;

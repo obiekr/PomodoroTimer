@@ -18,15 +18,15 @@ export default function Timeline({data, counter}){
     
 
     return(
-        <div className="d-flex justify-content-center">
-                <div className="my-auto pomo my-border p-2 m-2">
-                    <h6 className={`text-center my-auto ${arr[counter]}`}>1 minute</h6>
+        <div className="d-flex justify-content-center mt-5">
+                <div className={`my-auto my-border p-2 m-2 ${arr[counter-1]}`}>
+                    <h6 className={`text-center my-auto ${arr[counter-1]}`}>{data[arr[counter-1]]} minute</h6>
                 </div>
-                <div className="my-auto short my-border p-2 m-2 visualizer-box-short">
-                    <h6 className='text-center my-auto nows visualizer-box-short'>1 minute</h6>  
+                <div className={`my-auto my-border p-2 m-2 ${arr[counter]}`}>
+                    <h6 className={`text-center my-auto ${arr[counter]}`}>{data[arr[counter]]} minute</h6>
                 </div>
-                <div className="my-auto long my-border p-2 m-2">
-                    <h6 className='text-center my-auto '>1 minute</h6>
+                <div className={`my-auto my-border p-2 m-2 ${arr[counter+1]}`}>
+                    <h6 className={`text-center my-auto ${arr[counter+1]}`}>{data[arr[counter+1]]} minute</h6>
                 </div>
                 
         </div>
