@@ -31,19 +31,19 @@ export default function NewPomodoro(){
                 <div className="" >
                     <div className="form-group mt-1 np-form-group mx-auto">
                         <h3 className="text-center pomo">Pomo Time</h3> 
-                        <input type="number" className="form-control text-center rounded-1" placeholder="minutes" value={pomo} min={1} onChange={(e)=>setPomo(e.target.value)}/>
+                        <input type="number" className="form-control text-center rounded-1" placeholder="minutes" value={pomo} min={1} onChange={(e)=>setPomo(parseInt(e.target.value))}/>
                         <p className="text-center my-2">Time to focus on your task</p>
                     </div>
 
                     <div className="form-group mt-5 np-form-group mx-auto">
                         <h3 className="text-center short">Short Break Time</h3>
-                        <input type="number" className="form-control text-center rounded-1" placeholder="minutes" value={short} min={1} onChange={(e)=>setShort(e.target.value)}/>
+                        <input type="number" className="form-control text-center rounded-1" placeholder="minutes" value={short} min={1} onChange={(e)=>setShort(parseInt(e.target.value))}/>
                         <p className="text-center mt-2">Occured after doing your task</p>
                     </div>
 
                     <div className="form-group mt-5 np-form-group mx-auto">
                         <h3 className="text-center long">Long Break Time</h3>
-                        <input type="number" className="form-control text-center rounded-1" placeholder="minutes" value={long} min={short==="minutes" ? 0 : short} onChange={(e)=>setLong(e.target.value)}/>
+                        <input type="number" className="form-control text-center rounded-1" placeholder="minutes" value={long} min={short==="minutes" ? 0 : short} onChange={(e)=>setLong(parseInt(e.target.value))}/>
                         <p className="text-center mt-2">Occured after doing your task for "Interval" time</p>
                     </div>
 
@@ -51,11 +51,11 @@ export default function NewPomodoro(){
                         <div className="row">
                             <div className="col-6">
                                 <h3 className="text-center interval">Interval</h3>
-                                <input type="number" className="form-control text-center rounded-1" value={interval} min={1} onChange={(e)=>setInterval(e.target.value)}/>
+                                <input type="number" className="form-control text-center rounded-1" value={interval} min={1} onChange={(e)=>setInterval(parseInt(e.target.value))}/>
                             </div>
                             <div className="col-6">
                                 <h3 className="text-center rep">Repetition</h3>
-                                <input type="number" className="form-control text-center rounded-1" value={rep} min={1} onChange={(e)=>setRep(e.target.value)}/>
+                                <input type="number" className="form-control text-center rounded-1" value={rep} min={1} onChange={(e)=>setRep(parseInt(e.target.value))}/>
                             </div>
                         </div>
                     </div>  

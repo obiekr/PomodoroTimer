@@ -10,7 +10,6 @@ export default function Pomodoro() {
 
     const [counting, setCounting] = useState(true)
     const [counter, setCounter] = useState(localStorage.getItem("minutes")?parseInt(localStorage.getItem("counter")):0)
-    const [type, setType] = useState("pomo")
     const location = useLocation()
     const data = location.state
     
@@ -26,6 +25,15 @@ export default function Pomodoro() {
     const [minutes, setMinutes] = useState(parseInt(localStorage.getItem("minutes")))
     const [seconds, setSeconds] = useState(parseInt(localStorage.getItem("seconds")))
     
+    let a = false
+    // document.body.addEventListener('keydown', (e)=>{
+    //   if (e.code === "Space"){
+    //     setCounting(!counting)
+    //     console.log("pressed")
+    //   }
+    // })
+    
+
     return (
         <div className='container-fluid p-0 m-0'>
           <div className="d-flex justify-content-center vh-100">
@@ -35,8 +43,7 @@ export default function Pomodoro() {
               </div>
 
               <Timer 
-                counting={counting} 
-                data={data} setType={setType}
+                counting={counting} data={data}
                 minutes={minutes} setMinutes={setMinutes} 
                 seconds={seconds} setSeconds={setSeconds}
                 counter={counter} setCounter={setCounter} 
@@ -45,7 +52,10 @@ export default function Pomodoro() {
                 <Pause counting={counting} setCounting={setCounting}/>
               </div>
               <div className="timebox mt-5 d-flex justify-content-center">
-                <Timeline data={data} counter={counter}/>
+                <Timeline data={data} 
+                counter={counter} setCounter={setCounter} 
+                setMinutes={setMinutes} setSeconds={setSeconds}
+                />
               </div>
             </div>
           </div>

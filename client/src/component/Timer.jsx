@@ -2,21 +2,15 @@ import React from 'react'
 import { useEffect, useRef, useState } from 'react';
 import tone from "./alarm.mp3"
 
-function switches(counter, data, setType){
+function switches(counter, data){
     if (counter % 2 === 0){
         console.log("pomo")
-        setType("pomo")
         return data.pomo
-    }else if(counter % 2 === 1 && (counter + 1) % (data.interval*2) === 0){
-        if(counter+1 === data.interval*2*data.rep){
-            return 0 // end
-        }        
+    }else if(counter % 2 === 1 && (counter + 1) % (data.interval*2) === 0){    
         console.log("long break")
-        setType("long")
         return data.long
     }else{
         console.log("short break")
-        setType("short") 
         return data.short
     }
 }
@@ -45,12 +39,6 @@ export default function Timer(props){
     };
     
     useEffect(()=>{
-        if(counter+1 === data.interval*2*data.rep && counter % 2 === 1){
-            console.log("End")
-            localStorage.setItem("minutes", 0)
-            localStorage.setItem("seconds", 0)
-            return
-        }
         if(counting){
             localStorage.setItem("minutes", minutes)
             localStorage.setItem("seconds", seconds)
@@ -60,6 +48,12 @@ export default function Timer(props){
                     }
                     if (seconds === 0) {
                         if (minutes === 0) {
+                            if(counter+1 === data.interval*2*data.rep && counter % 2 === 1){
+                                console.log("End")
+                                clearInterval(myInterval);
+                                return
+                            }
+
                             let tempCnt = counter + 1
                             setCounter(tempCnt)
                             clearInterval(myInterval)
@@ -69,7 +63,7 @@ export default function Timer(props){
                             setSeconds(59);
                         }
                     } 
-                }, 100)
+                }, 50)
             return ()=> {
                 clearInterval(myInterval);
                 };
