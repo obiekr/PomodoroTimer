@@ -63,7 +63,7 @@ export default function Timer(props){
                             setSeconds(59);
                         }
                     } 
-                }, 50)
+                }, 1000)
             return ()=> {
                 clearInterval(myInterval);
                 };

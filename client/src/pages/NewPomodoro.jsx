@@ -4,11 +4,11 @@ import "./NewPomodoro.css"
 import { Link } from "react-router-dom";
 
 export default function NewPomodoro(){
-    const [pomo, setPomo] = useState(1)
-    const [short, setShort] = useState(1)
-    const [long, setLong] = useState(1)
-    const [interval, setInterval] = useState(2)
-    const [rep, setRep] = useState(2)
+    const [pomo, setPomo] = useState(25)
+    const [short, setShort] = useState(5)
+    const [long, setLong] = useState(5)
+    const [interval, setInterval] = useState(1)
+    const [rep, setRep] = useState(4)
 
     function submitHandler(e){
         e.preventDefault()
