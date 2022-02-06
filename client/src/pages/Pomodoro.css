@@ -53,11 +53,25 @@
 }
 .break-font.trans {
   opacity: 0%;
-} 
+}
 
 .transparent {
   opacity: 0;
   cursor: default;
+}
+
+.backBtn {
+  position: absolute;
+  margin: auto;
+  margin-top: 90vh;
+  cursor: pointer;
+  /* background-color: orange; */
+  font-size: 2em;
+  width: 50px;
+}
+
+.fa-arrow-left {
+  color: #e66864;
 }
 
 @media screen and (min-width: 576px) {
@@ -89,6 +103,18 @@
   }
   .break-font {
     margin-top: 5vh;
+  }
+}
+
+@media screen and (max-height: 690px) {
+  .break-font {
+    position: relative;
+    margin-top: 1vh;
+  }
+  .backBtn {
+    position: relative;
+    font-size: 1.5em;
+    margin-top: 1vh;
   }
 }
 

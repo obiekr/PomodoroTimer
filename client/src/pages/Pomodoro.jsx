@@ -21,11 +21,14 @@ export default function Pomodoro() {
         localStorage.setItem("counter", 0)
         localStorage.setItem("minutes", data.pomo)
         localStorage.setItem("seconds", 0)
-
     }
     const [minutes, setMinutes] = useState(parseInt(localStorage.getItem("minutes")))
     const [seconds, setSeconds] = useState(parseInt(localStorage.getItem("seconds")))
     
+    function backHandler(){
+      window.location.href = "/"
+    }
+
     return (
         <div className='container-fluid p-0 m-0'>
           <div className="d-flex justify-content-center vh-100">
@@ -48,6 +51,11 @@ export default function Pomodoro() {
                 counter={counter} setCounter={setCounter} 
                 setMinutes={setMinutes} setSeconds={setSeconds}
                 />
+              </div>
+              <div className='d-flex justify-content-center'>
+                <div className="backBtn text-center" onClick={backHandler}>
+                  <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                </div>
               </div>
             </div>
           </div>
